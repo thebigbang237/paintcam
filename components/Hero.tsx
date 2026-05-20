@@ -36,7 +36,7 @@ const item = {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.9, ease: [0.21, 0.47, 0.32, 0.98] },
+    transition: { duration: 0.9, ease: [0.21, 0.47, 0.32, 0.98] as const },
   },
 };
 
@@ -112,7 +112,6 @@ export function Hero({ lang }: { lang: Lang }) {
             ease: [0.21, 0.47, 0.32, 0.98],
           }}
         >
-
           {/* Video frame */}
           <div className="relative h-full w-full overflow-hidden rounded-[1.35rem] bg-black ">
             <video
@@ -160,10 +159,22 @@ export function Hero({ lang }: { lang: Lang }) {
           </div>
 
           {/* Gold corner brackets */}
-          <span className="corner-bracket tl text-[#D7B66F]" aria-hidden="true" />
-          <span className="corner-bracket tr text-[#D7B66F]" aria-hidden="true" />
-          <span className="corner-bracket bl text-[#D7B66F]" aria-hidden="true" />
-          <span className="corner-bracket br text-[#D7B66F]" aria-hidden="true" />
+          <span
+            className="corner-bracket tl text-[#D7B66F]"
+            aria-hidden="true"
+          />
+          <span
+            className="corner-bracket tr text-[#D7B66F]"
+            aria-hidden="true"
+          />
+          <span
+            className="corner-bracket bl text-[#D7B66F]"
+            aria-hidden="true"
+          />
+          <span
+            className="corner-bracket br text-[#D7B66F]"
+            aria-hidden="true"
+          />
         </motion.div>
       </div>
 
@@ -249,7 +260,6 @@ export function Hero({ lang }: { lang: Lang }) {
           >
             {t.cta}
           </a>
-
         </motion.div>
       </motion.div>
 
