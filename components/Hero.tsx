@@ -8,14 +8,16 @@ import type { Lang } from "@/hooks/useLanguage";
 const copy = {
   fr: {
     title1: "20 ans",
-    title2: "D'innovation",
+    title2: "ans de",
+    title3: "l'innovation",
     quote:
       "“Une vision qui traverse le temps devient un héritage à célébrer. À l’occasion de ses 20 ans, Paintcam Industries S.A. a l’honneur de vous convier à une soirée célébrant deux décennies d’innovation, d’excellence et de vision d’avenir.”",
     cta: "Confirmer ma présence",
   },
   en: {
     title1: "20 Years",
-    title2: "of innovation",
+    title2: "years of",
+    title3: "innovation",
     quote:
       "“Every once in a while, a vision grows beyond an idea and becomes a milestone worth honoring. Paintcam Industries S.A. is honored to invite you to an evening reflecting 20 years of innovation, engineering, and forward-thinking vision.”",
     cta: "Confirm Attendance",
@@ -242,17 +244,17 @@ export function Hero({ lang }: { lang: Lang }) {
                 letterSpacing: "0.08em",
               }}
             >
-              {t.title1.slice(3)}
+              {t.title2}
             </span>
             <span
-              className="mt-1 block uppercase text-white/60"
+              className=" block uppercase text-white/60"
               style={{
                 fontFamily: "var(--font-manrope)",
-                fontSize: "clamp(0.85rem, 1.6vw, 1.8rem)",
-                letterSpacing: "0.12em",
+                fontSize: "clamp(1.4rem, 2.6vw, 2rem)",
+                letterSpacing: "0.08em",
               }}
             >
-              {t.title2}
+              {t.title3}
             </span>
           </h1>
         </motion.div>
