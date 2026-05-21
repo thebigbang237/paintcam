@@ -42,6 +42,7 @@ const item = {
 
 export function Hero({ lang }: { lang: Lang }) {
   const t = copy[lang];
+  const bgVideoRef = useRef<HTMLVideoElement>(null);
   const portraitRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
   const userMutedRef = useRef(false);
@@ -50,16 +51,23 @@ export function Hero({ lang }: { lang: Lang }) {
     if (!portraitRef.current) return;
     const next = !muted;
     portraitRef.current.muted = next;
+    portraitRef.current.play().catch(() => {});
     setMuted(next);
     userMutedRef.current = next;
   };
 
   useEffect(() => {
-    const video = portraitRef.current;
-    if (!video) return;
+    // iOS Safari won't autoplay unless muted is set via DOM property (not JSX attr)
+    [bgVideoRef.current, portraitRef.current].forEach((v) => {
+      if (!v) return;
+      v.muted = true;
+      v.play().catch(() => {});
+    });
+
     const unmute = () => {
-      if (userMutedRef.current) return;
-      video.muted = false;
+      if (userMutedRef.current || !portraitRef.current) return;
+      portraitRef.current.muted = false;
+      portraitRef.current.play().catch(() => {}); // Android resumes after mute change
       setMuted(false);
     };
     document.addEventListener('click', unmute, { once: true });
@@ -78,6 +86,7 @@ export function Hero({ lang }: { lang: Lang }) {
       {/* ── BACKGROUND VIDEO ── */}
       <div className="absolute inset-0 z-0">
         <video
+          ref={bgVideoRef}
           autoPlay
           muted
           loop
