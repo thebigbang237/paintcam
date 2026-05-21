@@ -247,7 +247,7 @@ export function Hero({ lang }: { lang: Lang }) {
               {t.title2}
             </span>
             <span
-              className=" block uppercase text-white/60"
+              className=" block uppercase text-white"
               style={{
                 fontFamily: "var(--font-manrope)",
                 fontSize: "clamp(1.4rem, 2.6vw, 2rem)",
