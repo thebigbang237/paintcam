@@ -1,31 +1,10 @@
 @import "tailwindcss";
 
-/* ── Unison Pro — local fonts ── */
+/* ── Bembo Titling MT Std — local font ── */
 @font-face {
-  font-family: 'Unison Pro';
-  src: url('/fonts/Type Juice - Unison Pro Light.otf') format('opentype');
-  font-weight: 100 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Unison Pro';
-  src: url('/fonts/Type Juice - Unison Pro Bold.otf') format('opentype');
-  font-weight: 600 900;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Unison Pro Round';
-  src: url('/fonts/Type Juice - Unison Pro Light Round.otf') format('opentype');
-  font-weight: 100 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Unison Pro Round';
-  src: url('/fonts/Type Juice - Unison Pro Bold Round.otf') format('opentype');
-  font-weight: 600 900;
+  font-family: 'Bembo Titling MT Std';
+  src: url('/fonts/Bembo Titling MT Std Regular.otf') format('opentype');
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -38,7 +17,7 @@
 
 /* ── CSS Variables ── */
 :root {
-  --font-playfair: 'Unison Pro Round', sans-serif;
+  --font-playfair: 'Bembo Titling MT Std', serif;
   --color-gold: #d7b66f;
   --color-gold-dim: rgba(215, 182, 111, 0.55);
   --color-bg: #030303;
