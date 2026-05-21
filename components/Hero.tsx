@@ -227,22 +227,29 @@ export function Hero({ lang }: { lang: Lang }) {
 
         {/* Main headline */}
         <motion.div variants={item} className="mb-6">
-          <h1
-            className="uppercase"
-            style={{
-              fontFamily: "var(--font-playfair)",
-              textShadow: "0 4px 50px rgba(0,0,0,0.7)",
-            }}
-          >
+          <h1 style={{ textShadow: "0 4px 50px rgba(0,0,0,0.7)" }}>
             <span
-              className="block leading-[0.92] tracking-[-0.045em] text-white"
-              style={{ fontSize: "clamp(2rem, 5.6vw, 6.4rem)" }}
+              className="block leading-[0.92] tracking-[-0.045em] text-white uppercase"
+              style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(3rem, 5.6vw, 6.4rem)" }}
             >
-              {t.title1}
+              <span className="text-[#D7B66F] pr-1">20</span>
+              <span
+                style={{
+                  fontFamily: "var(--font-manrope)",
+                  fontSize: "clamp(1.5rem, 2.8vw, 3.2rem)",
+                  letterSpacing: "0.08em",
+                }}
+              >
+                {t.title1.slice(2)}
+              </span>
             </span>
             <span
-              className="mt-3 block leading-[0.95] tracking-[-0.035em] text-white/60"
-              style={{ fontSize: "clamp(2rem, 3.6vw, 4.4rem)" }}
+              className="mt-2 block leading-[0.95] text-white/60 uppercase"
+              style={{
+                fontFamily: "var(--font-manrope)",
+                fontSize: "clamp(1.5rem, 2.2vw, 2.6rem)",
+                letterSpacing: "0.08em",
+              }}
             >
               {t.title2}
             </span>
