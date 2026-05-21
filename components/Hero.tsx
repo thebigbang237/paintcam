@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Volume2, VolumeX } from "lucide-react";
 import type { Lang } from "@/hooks/useLanguage";
@@ -47,6 +47,22 @@ export function Hero({ lang }: { lang: Lang }) {
   const [muted, setMuted] = useState(true);
   const userMutedRef = useRef(false);
 
+  // Callback refs fire synchronously during React's commit phase — before iOS
+  // Safari evaluates autoplay, which is why useEffect alone is too late.
+  const bgVideoRefCb = useCallback((el: HTMLVideoElement | null) => {
+    bgVideoRef.current = el;
+    if (!el) return;
+    el.muted = true;
+    el.play().catch(() => {});
+  }, []);
+
+  const portraitRefCb = useCallback((el: HTMLVideoElement | null) => {
+    portraitRef.current = el;
+    if (!el) return;
+    el.muted = true;
+    el.play().catch(() => {});
+  }, []);
+
   const toggleMute = () => {
     if (!portraitRef.current) return;
     const next = !muted;
@@ -57,17 +73,10 @@ export function Hero({ lang }: { lang: Lang }) {
   };
 
   useEffect(() => {
-    // iOS Safari won't autoplay unless muted is set via DOM property (not JSX attr)
-    [bgVideoRef.current, portraitRef.current].forEach((v) => {
-      if (!v) return;
-      v.muted = true;
-      v.play().catch(() => {});
-    });
-
     const unmute = () => {
       if (userMutedRef.current || !portraitRef.current) return;
       portraitRef.current.muted = false;
-      portraitRef.current.play().catch(() => {}); // Android resumes after mute change
+      portraitRef.current.play().catch(() => {});
       setMuted(false);
     };
     document.addEventListener('click', unmute, { once: true });
@@ -86,7 +95,7 @@ export function Hero({ lang }: { lang: Lang }) {
       {/* ── BACKGROUND VIDEO ── */}
       <div className="absolute inset-0 z-0">
         <video
-          ref={bgVideoRef}
+          ref={bgVideoRefCb}
           autoPlay
           muted
           loop
@@ -143,7 +152,7 @@ export function Hero({ lang }: { lang: Lang }) {
           {/* Video frame */}
           <div className="relative h-full w-full overflow-hidden rounded-[1.35rem] bg-black ">
             <video
-              ref={portraitRef}
+              ref={portraitRefCb}
               autoPlay
               muted
               loop
