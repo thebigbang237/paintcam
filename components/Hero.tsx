@@ -229,26 +229,27 @@ export function Hero({ lang }: { lang: Lang }) {
         <motion.div variants={item} className="mb-6">
           <h1 style={{ textShadow: "0 4px 50px rgba(0,0,0,0.7)" }}>
             <span
-              className="block leading-[0.92] tracking-[-0.045em] text-white uppercase"
-              style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(3rem, 5.6vw, 6.4rem)" }}
+              className="block leading-none tracking-[-0.045em] text-[#D7B66F]"
+              style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(4rem, 7vw, 8rem)" }}
             >
-              <span className="text-[#D7B66F] pr-1">20</span>
-              <span
-                style={{
-                  fontFamily: "var(--font-manrope)",
-                  fontSize: "clamp(1.5rem, 2.8vw, 3.2rem)",
-                  letterSpacing: "0.08em",
-                }}
-              >
-                {t.title1.slice(2)}
-              </span>
+              20
             </span>
             <span
-              className="mt-2 block leading-[0.95] text-white/60 uppercase"
+              className="mt-1 block uppercase text-white"
               style={{
                 fontFamily: "var(--font-manrope)",
-                fontSize: "clamp(1.5rem, 2.2vw, 2.6rem)",
+                fontSize: "clamp(1.4rem, 2.6vw, 2rem)",
                 letterSpacing: "0.08em",
+              }}
+            >
+              {t.title1.slice(3)}
+            </span>
+            <span
+              className="mt-1 block uppercase text-white/60"
+              style={{
+                fontFamily: "var(--font-manrope)",
+                fontSize: "clamp(0.85rem, 1.6vw, 1.8rem)",
+                letterSpacing: "0.12em",
               }}
             >
               {t.title2}
