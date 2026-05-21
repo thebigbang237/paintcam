@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Volume2, VolumeX } from "lucide-react";
 import type { Lang } from "@/hooks/useLanguage";
@@ -8,14 +8,14 @@ import type { Lang } from "@/hooks/useLanguage";
 const copy = {
   fr: {
     title1: "20 ans",
-    title2: "En couleurs",
+    title2: "D'innovation",
     quote:
       "“Une vision qui traverse le temps devient un héritage à célébrer. À l’occasion de ses 20 ans, Paintcam Industries S.A. a l’honneur de vous convier à une soirée célébrant deux décennies d’innovation, d’excellence et de vision d’avenir.”",
     cta: "Confirmer ma présence",
   },
   en: {
     title1: "20 Years",
-    title2: "In Color",
+    title2: "of innovation",
     quote:
       "“Every once in a while, a vision grows beyond an idea and becomes a milestone worth honoring. Paintcam Industries S.A. is honored to invite you to an evening reflecting 20 years of innovation, engineering, and forward-thinking vision.”",
     cta: "Confirm Attendance",
@@ -44,12 +44,31 @@ export function Hero({ lang }: { lang: Lang }) {
   const t = copy[lang];
   const portraitRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
+  const userMutedRef = useRef(false);
 
   const toggleMute = () => {
     if (!portraitRef.current) return;
-    portraitRef.current.muted = !muted;
-    setMuted(!muted);
+    const next = !muted;
+    portraitRef.current.muted = next;
+    setMuted(next);
+    userMutedRef.current = next;
   };
+
+  useEffect(() => {
+    const video = portraitRef.current;
+    if (!video) return;
+    const unmute = () => {
+      if (userMutedRef.current) return;
+      video.muted = false;
+      setMuted(false);
+    };
+    document.addEventListener('click', unmute, { once: true });
+    document.addEventListener('touchstart', unmute, { once: true });
+    return () => {
+      document.removeEventListener('click', unmute);
+      document.removeEventListener('touchstart', unmute);
+    };
+  }, []);
 
   return (
     <section
@@ -199,13 +218,13 @@ export function Hero({ lang }: { lang: Lang }) {
           >
             <span
               className="block leading-[0.92] tracking-[-0.045em] text-white"
-              style={{ fontSize: "clamp(3.4rem, 5.6vw, 6.4rem)" }}
+              style={{ fontSize: "clamp(2rem, 5.6vw, 6.4rem)" }}
             >
               {t.title1}
             </span>
             <span
               className="mt-3 block leading-[0.95] tracking-[-0.035em] text-white/60"
-              style={{ fontSize: "clamp(2.2rem, 3.6vw, 4.4rem)" }}
+              style={{ fontSize: "clamp(2rem, 3.6vw, 4.4rem)" }}
             >
               {t.title2}
             </span>
@@ -224,7 +243,7 @@ export function Hero({ lang }: { lang: Lang }) {
         <motion.div variants={item} className="mb-8">
           <blockquote
             className="text-lg leading-relaxed text-[#F5F2EA]/90"
-            style={{ fontFamily: "var(--font-playfair)", fontStyle: "italic" }}
+            style={{ fontFamily: "var(--font-manrope)" }}
           >
             {t.quote}
           </blockquote>
@@ -253,7 +272,7 @@ export function Hero({ lang }: { lang: Lang }) {
             }}
             className="inline-block border border-[#D7B66F]/40 px-6 py-3 text-[#D7B66F] transition-colors duration-300 hover:bg-[#D7B66F]/15 cursor-pointer"
             style={{
-              fontFamily: "var(--font-playfair)",
+              fontFamily: "var(--font-manrope)",
               fontSize: "1.1rem",
               letterSpacing: "0.04em",
             }}

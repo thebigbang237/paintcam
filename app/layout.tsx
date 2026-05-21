@@ -1,15 +1,7 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Manrope } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import { LenisProvider } from "@/components/LenisProvider";
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  display: "swap",
-});
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -36,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className={`${playfair.variable} ${manrope.variable}`}>
+    <html lang="fr" className={manrope.variable}>
       <body>
         <div className="grain-overlay" aria-hidden="true" />
         <LenisProvider>{children}</LenisProvider>
