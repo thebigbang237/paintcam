@@ -1,22 +1,264 @@
-
-export function ConfirmationEmail({ lang }: { email: string; lang: 'fr' | 'en' }): string {
+export function ConfirmationEmail({
+  lang,
+}: {
+  email: string;
+  lang: 'fr' | 'en';
+}): string {
   const isFr = lang === 'fr';
-const logoUrl = 'https://paintcam-kappa.vercel.app/assets/logo-white.png';
-  const title = isFr ? 'Votre place est confirmée' : 'Your seat is confirmed';
+
+  const title = isFr
+    ? 'Votre place est confirmée'
+    : 'Your seat is confirmed';
+
   const bodyText = isFr
     ? `Merci, votre inscription à la soirée des 20 ans de PAINTCAM Industries S.A. est bien enregistrée.`
     : `Thank you, your registration for the PAINTCAM Industries S.A. 20th anniversary evening is confirmed.`;
-  const eventTitle = isFr ? "20 ans d'innovation" : '20 Years of Innovation';
+
+  const eventTitle = isFr
+    ? "20 ans d'innovation"
+    : '20 Years of Innovation';
+
   const venueLabel = isFr ? 'Lieu' : 'Venue';
   const dateLabel = 'Date';
   const timeLabel = isFr ? 'Heure' : 'Time';
-  const dateValue = isFr ? 'Jeudi 04 Juin 2026' : 'Thursday, June 4th 2026';
-  const timeValue = isFr ? '18h30 — Accueil à partir de 18h30' : '6:30 PM — Doors open from 6:30 PM';
-  const closing = isFr ? 'Au plaisir de vous accueillir.' : 'We look forward to welcoming you.';
 
-  return `<!DOCTYPE html><html lang="${lang}"><head>
-  <meta charset="utf-8">
+  const dateValue = isFr
+    ? 'Jeudi 04 Juin 2026'
+    : 'Thursday, June 4th 2026';
+
+  const timeValue = isFr
+    ? '18h30 — Accueil à partir de 18h30'
+    : '6:30 PM — Doors open from 6:30 PM';
+
+  const closing = isFr
+    ? 'Au plaisir de vous accueillir.'
+    : 'We look forward to welcoming you.';
+
+  return `
+<!DOCTYPE html>
+<html lang="${lang}">
+<head>
+  <meta charset="utf-8" />
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${title}</title>
-</head><body style="margin:0;padding:0;background-color:#030303;font-family:Georgia,serif"><table width="100%" cellpadding="0" cellspacing="0" style="background-color:#030303"><tbody><tr><td align="center" style="padding:40px 16px"><table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%"><tbody><tr><td align="center" style="padding-bottom:40px"><img src="${logoUrl}" alt="PAINTCAM" width="180" style="display:block;margin:0 auto;border:0;outline:none;text-decoration:none;height:auto;" /><div style="height:1px;background:linear-gradient(90deg,transparent,#D7B66F,transparent);margin-top:16px"></div></td></tr><tr><td align="center" style="padding-bottom:32px"><span style="color:#D7B66F;font-size:24px">✦</span></td></tr><tr><td align="center" style="padding-bottom:24px"><h1 style="margin:0;color:#F5F2EA;font-size:26px;font-weight:400;font-family:Georgia,serif;font-style:italic">${title}</h1></td></tr><tr><td style="padding:0 32px 32px"><p style="margin:0;color:rgba(245,242,234,0.65);font-size:15px;line-height:1.7;text-align:center;font-family:Arial,sans-serif">${bodyText}</p></td></tr><tr><td style="padding:0 32px 40px"><table width="100%" cellpadding="0" cellspacing="0" style="border:1px solid rgba(215,182,111,0.35)"><tbody><tr><td style="padding:28px 28px 8px"><p style="margin:0 0 6px;color:rgba(215,182,111,0.6);font-size:10px;letter-spacing:0.3em;text-transform:uppercase;font-family:Arial,sans-serif">PAINTCAM Industries S.A.</p><p style="margin:0 0 24px;color:#F5F2EA;font-size:20px;font-family:Georgia,serif">${eventTitle}</p></td></tr><tr><td style="padding:0 28px 12px;border-top:1px solid rgba(215,182,111,0.15)"><table cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td style="padding-top:16px;padding-bottom:12px"><p style="margin:0;color:#D7B66F;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;font-family:Arial,sans-serif">${venueLabel}</p><p style="margin:4px 0 0;color:#F5F2EA;font-size:14px;font-family:Arial,sans-serif">One Rooftop, Bonapriso – Douala</p></td></tr><tr><td style="padding-bottom:12px"><p style="margin:0;color:#D7B66F;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;font-family:Arial,sans-serif">${dateLabel}</p><p style="margin:4px 0 0;color:#F5F2EA;font-size:14px;font-family:Arial,sans-serif">${dateValue}</p></td></tr><tr><td style="padding-bottom:20px"><p style="margin:0;color:#D7B66F;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;font-family:Arial,sans-serif">${timeLabel}</p><p style="margin:4px 0 0;color:#F5F2EA;font-size:14px;font-family:Arial,sans-serif">${timeValue}</p></td></tr></tbody></table></td></tr></tbody></table></td></tr><tr><td align="center" style="padding:0 32px 40px"><p style="margin:0;color:rgba(245,242,234,0.5);font-size:14px;font-style:normal;font-family:Georgia,serif">${closing}</p><p style="margin:10px 0 0;color:#D7B66F;font-size:11px;letter-spacing:0.25em;text-transform:uppercase;font-family:Arial,sans-serif">PAINTCAM Industries S.A.</p></td></tr><tr><td align="center" style="border-top:1px solid rgba(255,255,255,0.06);padding:20px 32px 0"><p style="margin:0;color:rgba(245,242,234,0.2);font-size:11px;font-family:Arial,sans-serif">© 2026 PAINTCAM Industries S.A. · reservation@paintcam.com</p></td></tr></tbody></table></td></tr></tbody></table></body></html>`;
+</head>
+
+<body style="margin:0;padding:0;background-color:#ffffff;font-family:Georgia,serif;">
+
+  <table
+    width="100%"
+    cellpadding="0"
+    cellspacing="0"
+    style="background-color:#ffffff;"
+  >
+    <tbody>
+      <tr>
+        <td align="center" style="padding:40px 16px;">
+
+          <table
+            width="600"
+            cellpadding="0"
+            cellspacing="0"
+            style="max-width:600px;width:100%;"
+          >
+            <tbody>
+
+              <!-- Decorative Divider -->
+              <tr>
+                <td align="center" style="padding-bottom:40px;">
+                  <div
+                    style="height:1px;background:linear-gradient(90deg,transparent,#D7B66F,transparent);"
+                  ></div>
+                </td>
+              </tr>
+
+              <!-- Decorative Symbol -->
+              <tr>
+                <td align="center" style="padding-bottom:32px;">
+                  <span style="color:#D7B66F;font-size:24px;">✦</span>
+                </td>
+              </tr>
+
+              <!-- Title -->
+              <tr>
+                <td align="center" style="padding-bottom:24px;">
+                  <h1
+                    style="margin:0;color:#1a1a1a;font-size:26px;font-weight:400;font-family:Georgia,serif;font-style:italic;"
+                  >
+                    ${title}
+                  </h1>
+                </td>
+              </tr>
+
+              <!-- Body Text -->
+              <tr>
+                <td style="padding:0 32px 32px;">
+                  <p
+                    style="margin:0;color:#555555;font-size:15px;line-height:1.7;text-align:center;font-family:Arial,sans-serif;"
+                  >
+                    ${bodyText}
+                  </p>
+                </td>
+              </tr>
+
+              <!-- Event Card -->
+              <tr>
+                <td style="padding:0 32px 40px;">
+
+                  <table
+                    width="100%"
+                    cellpadding="0"
+                    cellspacing="0"
+                    style="border:1px solid rgba(215,182,111,0.35);border-radius:4px;"
+                  >
+                    <tbody>
+
+                      <!-- Card Header -->
+                      <tr>
+                        <td style="padding:28px 28px 8px;">
+
+                          <p
+                            style="margin:0 0 6px;color:rgba(215,182,111,0.8);font-size:10px;letter-spacing:0.3em;text-transform:uppercase;font-family:Arial,sans-serif;"
+                          >
+                            PAINTCAM Industries S.A.
+                          </p>
+
+                          <p
+                            style="margin:0 0 24px;color:#222222;font-size:20px;font-family:Georgia,serif;"
+                          >
+                            ${eventTitle}
+                          </p>
+
+                        </td>
+                      </tr>
+
+                      <!-- Card Content -->
+                      <tr>
+                        <td
+                          style="padding:0 28px 12px;border-top:1px solid rgba(215,182,111,0.15);"
+                        >
+
+                          <table
+                            cellpadding="0"
+                            cellspacing="0"
+                            width="100%"
+                          >
+                            <tbody>
+
+                              <!-- Venue -->
+                              <tr>
+                                <td style="padding-top:16px;padding-bottom:12px;">
+
+                                  <p
+                                    style="margin:0;color:#D7B66F;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;font-family:Arial,sans-serif;"
+                                  >
+                                    ${venueLabel}
+                                  </p>
+
+                                  <p
+                                    style="margin:4px 0 0;color:#222222;font-size:14px;font-family:Arial,sans-serif;"
+                                  >
+                                    One Rooftop, Bonapriso – Douala
+                                  </p>
+
+                                </td>
+                              </tr>
+
+                              <!-- Date -->
+                              <tr>
+                                <td style="padding-bottom:12px;">
+
+                                  <p
+                                    style="margin:0;color:#D7B66F;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;font-family:Arial,sans-serif;"
+                                  >
+                                    ${dateLabel}
+                                  </p>
+
+                                  <p
+                                    style="margin:4px 0 0;color:#222222;font-size:14px;font-family:Arial,sans-serif;"
+                                  >
+                                    ${dateValue}
+                                  </p>
+
+                                </td>
+                              </tr>
+
+                              <!-- Time -->
+                              <tr>
+                                <td style="padding-bottom:20px;">
+
+                                  <p
+                                    style="margin:0;color:#D7B66F;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;font-family:Arial,sans-serif;"
+                                  >
+                                    ${timeLabel}
+                                  </p>
+
+                                  <p
+                                    style="margin:4px 0 0;color:#222222;font-size:14px;font-family:Arial,sans-serif;"
+                                  >
+                                    ${timeValue}
+                                  </p>
+
+                                </td>
+                              </tr>
+
+                            </tbody>
+                          </table>
+
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+
+                </td>
+              </tr>
+
+              <!-- Closing -->
+              <tr>
+                <td align="center" style="padding:0 32px 40px;">
+
+                  <p
+                    style="margin:0;color:#666666;font-size:14px;font-style:normal;font-family:Georgia,serif;"
+                  >
+                    ${closing}
+                  </p>
+
+                  <p
+                    style="margin:10px 0 0;color:#D7B66F;font-size:11px;letter-spacing:0.25em;text-transform:uppercase;font-family:Arial,sans-serif;"
+                  >
+                    PAINTCAM Industries S.A.
+                  </p>
+
+                </td>
+              </tr>
+
+              <!-- Footer -->
+              <tr>
+                <td
+                  align="center"
+                  style="border-top:1px solid rgba(0,0,0,0.08);padding:20px 32px 0;"
+                >
+
+                  <p
+                    style="margin:0;color:#999999;font-size:11px;font-family:Arial,sans-serif;"
+                  >
+                    © 2026 PAINTCAM Industries S.A. · reservation@paintcam.com
+                  </p>
+
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>
+`;
 }
