@@ -34,7 +34,7 @@ export function Header() {
               alt="PAINTCAM"
               width={260}
               height={100}
-              className="h-20 w-auto"
+              className="h-20 w-auto [@media(max-height:799px)]:h-12"
               priority
             />
           </a>

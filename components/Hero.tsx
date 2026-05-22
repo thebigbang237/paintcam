@@ -81,11 +81,11 @@ export function Hero({ lang }: { lang: Lang }) {
       portraitRef.current.play().catch(() => {});
       setMuted(false);
     };
-    document.addEventListener('click', unmute, { once: true });
-    document.addEventListener('touchstart', unmute, { once: true });
+    document.addEventListener("click", unmute, { once: true });
+    document.addEventListener("touchstart", unmute, { once: true });
     return () => {
-      document.removeEventListener('click', unmute);
-      document.removeEventListener('touchstart', unmute);
+      document.removeEventListener("click", unmute);
+      document.removeEventListener("touchstart", unmute);
     };
   }, []);
 
@@ -140,9 +140,9 @@ export function Hero({ lang }: { lang: Lang }) {
       </div>
 
       {/* ── LEFT: PORTRAIT VIDEO CARD ── */}
-      <div className="relative z-10 flex w-full items-end justify-center pb-8 pt-28 md:w-[45%] md:items-center md:justify-end md:pb-0 md:pl-12 md:pt-0 lg:pl-20">
+      <div className="relative z-10 flex w-full items-end justify-center pb-8 pt-28 md:w-[45%] md:items-center md:justify-end md:pb-0 md:pl-8 md:pt-0 lg:pl-14">
         <motion.div
-          className="relative aspect-[9/16] w-full max-w-[260px] md:max-w-[340px] lg:max-w-[380px]"
+          className="hero-video-card relative aspect-[9/16] w-full max-w-[260px] md:max-w-65 lg:max-w-75 xl:max-w-85"
           initial={{ opacity: 0, y: 40, scale: 0.97 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{
@@ -219,40 +219,32 @@ export function Hero({ lang }: { lang: Lang }) {
 
       {/* ── RIGHT: HERO CONTENT ── */}
       <motion.div
-        className="relative z-10 flex w-full flex-col items-center justify-center px-8 pb-16 text-center md:w-[45%] md:items-start md:pb-0 md:pr-14 md:text-left lg:pr-20"
+        className="relative z-10 flex w-full flex-col items-center justify-center px-8 pb-16 text-center md:w-[45%] md:items-start md:pb-0 md:pr-10 md:text-left lg:pr-14"
         variants={container}
         initial="hidden"
         animate="visible"
       >
-        {/* Overline */}
-        <motion.div variants={item} className="mb-6"></motion.div>
-
         {/* Main headline */}
-        <motion.div variants={item} className="mb-6">
+        <motion.div
+          variants={item}
+          className="mb-6 [@media(max-height:799px)]:mb-3"
+        >
           <h1 style={{ textShadow: "0 4px 50px rgba(0,0,0,0.7)" }}>
             <span
-              className="block leading-none tracking-[-0.045em] text-[#D7B66F]"
-              style={{ fontFamily: "var(--font-playfair)", fontSize: "clamp(4rem, 7vw, 8rem)" }}
+              className="hero-number block leading-none tracking-[-0.045em] text-[#D7B66F]"
+              style={{ fontFamily: "var(--font-playfair)" }}
             >
               20
             </span>
             <span
-              className="mt-1 block uppercase text-white"
-              style={{
-                fontFamily: "var(--font-manrope)",
-                fontSize: "clamp(1.4rem, 2.6vw, 2rem)",
-                letterSpacing: "0.08em",
-              }}
+              className="hero-subtitle mt-1 block uppercase text-white"
+              style={{ fontFamily: "var(--font-manrope)" }}
             >
               {t.title2}
             </span>
             <span
-              className=" block uppercase text-white"
-              style={{
-                fontFamily: "var(--font-manrope)",
-                fontSize: "clamp(1.4rem, 2.6vw, 2rem)",
-                letterSpacing: "0.08em",
-              }}
+              className="hero-subtitle block uppercase text-white"
+              style={{ fontFamily: "var(--font-manrope)" }}
             >
               {t.title3}
             </span>
@@ -262,15 +254,18 @@ export function Hero({ lang }: { lang: Lang }) {
         {/* Divider */}
         <motion.div
           variants={item}
-          className="mb-8 w-full max-w-[320px] md:mx-0"
+          className="mb-8 [@media(max-height:799px)]:mb-3 w-full max-w-[320px] md:mx-0"
         >
           <div className="gold-divider" />
         </motion.div>
 
         {/* Quote */}
-        <motion.div variants={item} className="mb-8">
+        <motion.div
+          variants={item}
+          className="mb-8 [@media(max-height:799px)]:mb-3"
+        >
           <blockquote
-            className="text-lg leading-relaxed text-[#F5F2EA]/90"
+            className="text-lg leading-relaxed text-[#F5F2EA]/90 [@media(max-height:799px)]:text-sm max-w-120 md:mx-0 mx-auto"
             style={{ fontFamily: "var(--font-manrope)" }}
           >
             {t.quote}
@@ -280,7 +275,7 @@ export function Hero({ lang }: { lang: Lang }) {
         {/* Divider */}
         <motion.div
           variants={item}
-          className="mb-8 w-full max-w-[320px] md:mx-0"
+          className="mb-8 [@media(max-height:799px)]:mb-3 w-full max-w-[320px] md:mx-0"
         >
           <div className="gold-divider" />
         </motion.div>
