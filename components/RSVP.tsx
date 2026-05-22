@@ -8,7 +8,7 @@ import type { Lang } from '@/hooks/useLanguage'
 const copy = {
   fr: {
     heading: 'Confirmez votre présence',
-    sub: 'Entrez votre email pour réserver votre place. Une confirmation vous sera envoyée.',
+    sub: 'Veuillez saisir votre adresse e-mail afin de recevoir votre confirmation.',
     placeholder: 'votre@email.com',
     cta: 'Je confirme',
     sending: 'Envoi en cours…',
@@ -19,7 +19,7 @@ const copy = {
   },
   en: {
     heading: 'Confirm Your Attendance',
-    sub: 'Enter your email to reserve your spot. A confirmation will be sent to you.',
+    sub: 'Kindly enter your email address to receive your confirmation.',
     placeholder: 'your@email.com',
     cta: 'I Confirm',
     sending: 'Sending…',
