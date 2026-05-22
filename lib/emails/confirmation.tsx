@@ -6,7 +6,7 @@ export function ConfirmationEmail({ lang }: { email: string; lang: 'fr' | 'en' }
   const bodyText = isFr
     ? `Merci, votre inscription à la soirée des 20 ans de PAINTCAM Industries S.A. est bien enregistrée.`
     : `Thank you, your registration for the PAINTCAM Industries S.A. 20th anniversary evening is confirmed.`;
-  const eventTitle = isFr ? '20 ans en couleurs' : '20 Years in Color';
+  const eventTitle = isFr ? '20 ans D'innovation' : '20 Years of Innovation';
   const venueLabel = isFr ? 'Lieu' : 'Venue';
   const dateLabel = 'Date';
   const timeLabel = isFr ? 'Heure' : 'Time';
