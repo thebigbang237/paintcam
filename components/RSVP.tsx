@@ -8,7 +8,7 @@ import type { Lang } from '@/hooks/useLanguage'
 const copy = {
   fr: {
     heading: 'Confirmez votre présence',
-    sub: 'Veuillez saisir votre adresse e-mail afin de recevoir votre confirmation.',
+    sub: 'Veuillez renseigner votre adresse e-mail afin de confirmer votre participation.',
     placeholder: 'votre@email.com',
     cta: 'Je confirme',
     sending: 'Envoi en cours…',
