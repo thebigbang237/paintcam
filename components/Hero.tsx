@@ -7,17 +7,17 @@ import type { Lang } from "@/hooks/useLanguage";
 
 const copy = {
   fr: {
-    title1: "20 ans",
-    title2: "ans de",
-    title3: "l'innovation",
+    title1: "20",
+    title2: "Ans",
+    title3: "D'innovation",
     quote:
       "“Une vision qui traverse le temps devient un héritage à célébrer. À l’occasion de ses 20 ans, Paintcam Industries S.A. a l’honneur de vous convier à une soirée célébrant deux décennies d’innovation, d’excellence et de vision d’avenir.”",
     cta: "Confirmer ma présence",
   },
   en: {
-    title1: "20 Years",
-    title2: "years of",
-    title3: "innovation",
+    title1: "20",
+    title2: "Years of",
+    title3: "Innovation",
     quote:
       "“Every once in a while, a vision grows beyond an idea and becomes a milestone worth honoring. Paintcam Industries S.A. is honored to invite you to an evening reflecting 20 years of innovation, engineering, and forward-thinking vision.”",
     cta: "Confirm Attendance",
