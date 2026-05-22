@@ -124,7 +124,7 @@ body {
 }
 
 
-@media (max-height: 699px) {
+@media (max-height: 799px) {
   .hero-number {
     font-size: clamp(2.5rem, 4.5vw, 6rem);
   }

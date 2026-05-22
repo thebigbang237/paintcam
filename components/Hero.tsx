@@ -142,7 +142,7 @@ export function Hero({ lang }: { lang: Lang }) {
       {/* ── LEFT: PORTRAIT VIDEO CARD ── */}
       <div className="relative z-10 flex w-full items-end justify-center pb-8 pt-28 md:w-[45%] md:items-center md:justify-end md:pb-0 md:pl-8 md:pt-0 lg:pl-14">
         <motion.div
-          className="hero-video-card relative aspect-[9/16] w-full max-w-[260px] md:max-w-65 lg:max-w-75 xl:max-w-85"
+          className="hero-video-card relative aspect-[9/16] w-full max-w-[260px] md:max-w-65  xl:max-w-85"
           initial={{ opacity: 0, y: 40, scale: 0.97 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{
